@@ -19,7 +19,6 @@ export class HomePage implements OnInit {
   async ngOnInit() {
     await this.platform.ready();
     this.localNotifications.on("click").subscribe(data => {
-      console.log("XXX asdf");
       this.route.navigate(["/page1"]);
     });
   }
@@ -28,7 +27,5 @@ export class HomePage implements OnInit {
     this.localNotifications.schedule({
       text: "Single Local Notification"
     });
-
-    console.log("asdf");
   }
 }

@@ -1,7 +1,16 @@
-<ion-header>
+<ion-header [translucent]="true">
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-back-button defaultHref="home"></ion-back-button>
     </ion-buttons>
+    <ion-title>Subpage 1</ion-title>
   </ion-toolbar>
 </ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-grid>
+    <ion-row class="ion-justify-content-center ion-align-items-center ion-margin-top">
+      <ion-button (click)="pushSubpage()">Subpage 2</ion-button>
+    </ion-row>
+  </ion-grid>
+</ion-content>

@@ -1,4 +1,6 @@
-import { Component, OnInit } from "@angular/core";
+import { AfterViewInit, Component, ViewChild } from "@angular/core";
+import { IonNav } from "@ionic/angular";
+import { NavService } from "../home/nav.service";
 import { Page1Subpage1Component } from "../page1-subpage1/page1-subpage1.component";
 
 @Component({
@@ -6,9 +8,14 @@ import { Page1Subpage1Component } from "../page1-subpage1/page1-subpage1.compone
   templateUrl: "./page1.page.html",
   styleUrls: ["./page1.page.scss"]
 })
-export class Page1Page implements OnInit {
-  subpage = Page1Subpage1Component;
-  constructor() {}
+export class Page1Page implements AfterViewInit {
+  @ViewChild("nav", { static: false }) private nav: IonNav;
 
-  ngOnInit() {}
+  subpage = Page1Subpage1Component;
+
+  constructor(public navService: NavService) {}
+
+  ngAfterViewInit() {
+    this.navService.nav = this.nav;
+  }
 }
