@@ -15,7 +15,8 @@ export class Page1Page implements AfterViewInit {
 
   constructor(public navService: NavService) {}
 
-  ngAfterViewInit() {
+  async ngAfterViewInit() {
     this.navService.nav = this.nav;
+    await this.navService.nav.canGoBack();
   }
 }
